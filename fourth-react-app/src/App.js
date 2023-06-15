@@ -1,22 +1,27 @@
-
 function App() {
-  return(
-  <>
-   <h1> good morning</h1>
-{/**calling the Messagedemo  */}
-   <MessageDemo />
-   <MessageDemo />
-   <MessageDemo />
-  </>
-   );
-}
-// Reusable + but returns static output
-function MessageDemo(){
- //  console.log("hello Ajinkya");
-  return(
-   <>
-    <h1> hello</h1>
-   </>
+  return (
+    <>
+      <h1>Props Demo</h1>
+
+      {/** Calling the MessageDemo(1, 'abcd') */}
+      <MessageDemo name="shubham" />
+      <MessageDemo name="ajju" />
+      <MessageDemo name="omkar" />
+      <MessageDemo name="deva" />
+    </>
   );
 }
+
+// Reusable
+// how to make this "dynmaic"
+function MessageDemo(props) {
+  // console.log("I am inside messagedemo", props);
+
+  return (
+    <>
+      <h1>Hello {props.name}</h1>
+    </>
+  );
+}
+
 export default App;
