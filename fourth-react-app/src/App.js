@@ -2,24 +2,25 @@ function App() {
   return (
     <>
       <h1>Props Demo</h1>
-
-      {/** Calling the MessageDemo(1, 'abcd') */}
-      <MessageDemo name="shubham" />
-      <MessageDemo name="ajju" />
-      <MessageDemo name="omkar" />
-      <MessageDemo name="deva" />
+      <ListDemo />
     </>
   );
 }
 
-// Reusable
-// how to make this "dynmaic"
-function MessageDemo(props) {
-  // console.log("I am inside messagedemo", props);
+function ListDemo() {
+  let data = "Hello Universe";
+  let list = ["delhi", "calcutta", "chennai"];
 
   return (
     <>
-      <h1>Hello {props.name}</h1>
+      <h1>{data}</h1>
+
+      {/** foreach is consumer function */}
+      {list.forEach((item) => item)}
+
+      {/** map is input/output */}
+      {/** OUTPUT BCZ OF THIS */}
+      {list.map((item) => item)}
     </>
   );
 }
