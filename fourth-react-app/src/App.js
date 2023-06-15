@@ -4,22 +4,25 @@ function App() {
       <h1>Props Demo</h1>
 
       {/** Calling the MessageDemo(1, 'abcd') */}
-      <MessageDemo name="shubham" />
+      <MessageDemo />
       <MessageDemo name="ajju" />
-      <MessageDemo name="omkar" />
-      <MessageDemo name="deva" />
+      <MessageDemo name="dhananjay" email="777@gmail.com" />
+      <MessageDemo name="shivam" email="s@gmail.com" />
+      <MessageDemo name="pritz" email="pritzphotography@gmail.com" />
+      <MessageDemo name="cdac" email="cdac@gmail.com" />
     </>
   );
 }
 
 // Reusable
 // how to make this "dynmaic"
-function MessageDemo(props) {
-  // console.log("I am inside messagedemo", props);
-
+// props :: destructrued,
+function MessageDemo({ email, name }) {
   return (
     <>
-      <h1>Hello {props.name}</h1>
+      <h1>
+        Hello {name} {email}
+      </h1>
     </>
   );
 }
