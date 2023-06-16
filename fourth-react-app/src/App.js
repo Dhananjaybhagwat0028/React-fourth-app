@@ -13,12 +13,20 @@ function ListDemo() {
   let [list, setList] = useState(["delhi"]);
 
   let addItemAction = () => {
-    let newList = [...list, "mumbai"];
+    // RESTRICATED :: WE SHOULD NOT USE DOCUMENT OBJECT :: STRICT NO
+    let inputRef = document.querySelector("#id1");
+    let inputValue = inputRef.value;
+
+    // let newList = [...list, inputValue];
+    let newList = [inputValue, ...list];
     setList(newList);
+
+    inputRef.value = "";
   };
 
   return (
     <>
+      <input type="text" id="id1" placeholder="Enter user input..." />
       <input type="button" value="Add New Item" onClick={addItemAction} />
 
       {list.map((item) => (
