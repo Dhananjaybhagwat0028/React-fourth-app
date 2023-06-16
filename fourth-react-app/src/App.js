@@ -6,7 +6,6 @@ function App() {
     </>
   );
 }
-
 function ListDemo() {
   let data = "Hello Universe";
   let list = ["delhi", "calcutta", "chennai"];
@@ -15,11 +14,18 @@ function ListDemo() {
     <>
       <h1>{data}</h1>
 
-      {/** foreach is consumer function */}
-      {list.forEach((item) => item)}
+      {/** Version.3 */}
+      {list.map((item) => (
+        <>
+          <h1>Hello World</h1>
+        </>
+      ))}
 
-      {/** map is input/output */}
-      {/** OUTPUT BCZ OF THIS */}
+      {/** Version.2 */}
+      {list.map((item) => "Hello" + item)}
+
+      <hr />
+      {/** Version.1 */}
       {list.map((item) => item)}
     </>
   );
