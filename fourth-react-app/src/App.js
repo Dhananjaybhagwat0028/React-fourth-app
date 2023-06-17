@@ -5,6 +5,7 @@ import MyNavigationLinks from "./pages/MyNavigationLinks";
 import MyTodoList from "./pages/MyTodoList";
 import MyNavigationLinksUsingButton from "./pages/MyNavigationLinksUsingButton";
 import MyUserList from "./pages/MyUserList";
+import ValidationDemo from "./pages/ValidationDemo";
 
 function App() {
   return (
@@ -19,8 +20,8 @@ function App() {
           <Route path="/todo" element={<MyTodo />} />
           <Route path="/todolist" element={<MyTodoList />} />
           <Route path="/registration" element={<MyRegistration />} />
-          
           <Route path="/userlist" element={<MyUserList />} />
+          <Route path="/validation-demo" element={<ValidationDemo />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
         <MyNavigationLinksUsingButton />

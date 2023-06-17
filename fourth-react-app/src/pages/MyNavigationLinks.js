@@ -7,8 +7,8 @@ function MyNavigationLinks() {
       <Link to={"/todo"}>Todo |</Link>
       <Link to={"/todolist"}>Todo List |</Link>
       <Link to={"/registration"}>Registration |</Link>
-      <Link to={"/userlist"}>userList</Link>
-
+      <Link to={"/userlist"}>userList |</Link>
+      <Link to={"/validation-demo"}>ValidationDemo</Link>
     </>
   );
 }
