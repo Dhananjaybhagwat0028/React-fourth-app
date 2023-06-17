@@ -9,3 +9,4 @@ function MyNavigationLinks() {
     </>
   );
 }
+ export default MyNavigationLinks ;

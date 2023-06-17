@@ -8,7 +8,6 @@ function App() {
     <>
       <BrowserRouter>
         <MyNavigationLinks />
-
         <Routes>
           {/** 1 Route means 1 Page */}
           <Route path="/" element={<h1>Hello</h1>} />
