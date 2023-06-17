@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 
-
 function App() {
   return (
     <>
@@ -11,7 +10,6 @@ function App() {
 }
 
 function MyTodo() {
-  let [sucessBox, setSuccessBox] = useState(false);
   let [todo, setTodo] = useState({ task: "", description: "" });
 
   let handleChnageTaskAction = (e) => {
@@ -25,17 +23,9 @@ function MyTodo() {
     setTodo(newTodo);
   };
 
-  let addTodoAction = async () => {
+  let addTodoAction = () => {
     console.log(todo);
-
-    let url = `http://localhost:4000/addtodo?task=${todo.task}&description=${todo.description}`;
-    await fetch(url);
-
-    // clear the box
-    let newtodo = { task: "", description: "" };
-    setTodo(newtodo);
-
-    setSuccessBox(true);
+    // TODO :: Save this do DB
   };
 
   return (
@@ -57,10 +47,6 @@ function MyTodo() {
         onChange={handleChangeDescriptionAction}></textarea>
 
       <input type="button" value="Add Todo" onClick={addTodoAction} />
-
-      {sucessBox && (
-        <div className="alert alert-success">Operation Success</div>
-      )}
     </>
   );
 }
