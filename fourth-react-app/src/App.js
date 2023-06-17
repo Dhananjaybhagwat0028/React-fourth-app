@@ -1,37 +1,65 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function App() {
   return (
     <>
-      <h1>Stateful List</h1>
-      <ListDemo />
+      <h1>My Todo</h1>
+      <MyTodo />
     </>
   );
 }
 
-function ListDemo() {
-  let [list, setList] = useState(["delhi"]);
+function MyTodo() {
+  let [sucessBox, setSuccessBox] = useState(false);
+  let [todo, setTodo] = useState({ task: "", description: "" });
 
-  let addItemAction = () => {
-    // RESTRICATED :: WE SHOULD NOT USE DOCUMENT OBJECT :: STRICT NO
-    let inputRef = document.querySelector("#id1");
-    let inputValue = inputRef.value;
+  let handleChnageTaskAction = (e) => {
+    let newTodo = { ...todo, task: e.target.value };
+    setTodo(newTodo);
+  };
 
-    // let newList = [...list, inputValue];
-    let newList = [inputValue, ...list];
-    setList(newList);
+  let handleChangeDescriptionAction = (e) => {
+    // console.log(e.target);
+    let newTodo = { ...todo, description: e.target.value };
+    setTodo(newTodo);
+  };
 
-    inputRef.value = "";
+  let addTodoAction = async () => {
+    console.log(todo);
+
+    let url = `http://localhost:4000/addtodo?task=${todo.task}&description=${todo.description}`;
+    await fetch(url);
+
+    // clear the box
+    let newtodo = { task: "", description: "" };
+    setTodo(newtodo);
+
+    setSuccessBox(true);
   };
 
   return (
     <>
-      <input type="text" id="id1" placeholder="Enter user input..." />
-      <input type="button" value="Add New Item" onClick={addItemAction} />
+      <input
+        className="form-control"
+        type="text"
+        placeholder="Enter task"
+        value={todo.task}
+        onChange={handleChnageTaskAction}
+      />
 
-      {list.map((item) => (
-        <h1>{item}</h1>
-      ))}
+      <textarea
+        className="form-control"
+        cols="30"
+        rows="3"
+        placeholder="Enter Description"
+        value={todo.description}
+        onChange={handleChangeDescriptionAction}></textarea>
+
+      <input type="button" value="Add Todo" onClick={addTodoAction} />
+
+      {sucessBox && (
+        <div className="alert alert-success">Operation Success</div>
+      )}
     </>
   );
 }
