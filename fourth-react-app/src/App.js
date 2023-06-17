@@ -1,6 +1,7 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import MyTodo from "./pages/MyTodo";
 import MyRegistration from "./pages/MyRegistration";
+import MyNavigationLinks from "./pages/MyNavigationLinks";
 
 function App() {
   return (
@@ -23,14 +24,6 @@ function App() {
   );
 }
 
-function MyNavigationLinks() {
-  return (
-    <>
-      <Link to={"/home"}>Home |</Link>
-      <Link to={"/todo"}>Todo |</Link>
-      <Link to={"/registration"}>Registration</Link>
-    </>
-  );
-}
+
 
 export default App;
