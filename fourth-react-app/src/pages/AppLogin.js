@@ -31,7 +31,9 @@ function AppLogin() {
       }
 
       // TODO BACKEND :: ...
-      navigate("/home");
+      localStorage.setItem("loginStatus", "true");
+
+      navigate("/home", { replace: true });
     } catch (err) {
       alert(err.message);
       setIsError(true);
@@ -62,7 +64,7 @@ function AppLogin() {
               onChange={handlerPasswordAction}
               required
             />
-
+ 
             <input
               type="button"
               value="Login"

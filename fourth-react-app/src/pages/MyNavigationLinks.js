@@ -5,8 +5,15 @@ function MyNavigationLinks() {
   let navigate = useNavigate();
 
   const logOutAction = () => {
-    navigate("/login");
+    localStorage.removeItem("loginStatus");
+    navigate("/login", { replace: true });
   };
+
+  // Assistance of LocalStorage
+  let loginStatus = localStorage.getItem("loginStatus");
+  if (!loginStatus) {
+    return <></>;
+  }
 
   return (
     <>
@@ -16,9 +23,6 @@ function MyNavigationLinks() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to={"/login"}>
-                Login
-              </Nav.Link>
               <Nav.Link as={Link} to={"/home"}>
                 Home
               </Nav.Link>
@@ -26,17 +30,17 @@ function MyNavigationLinks() {
               <Nav.Link as={Link} to={"/todo"}>
                 Todo
               </Nav.Link>
-              <Nav.Link as={Link} to={"/todo-list"}>
+              <Nav.Link as={Link} to={"/todolist"}>
                 Todo List
               </Nav.Link>
               <Nav.Link as={Link} to={"/registration"}>
                 Registration
               </Nav.Link>
-              <Nav.Link as={Link} to={"/user-list"}>
+              <Nav.Link as={Link} to={"/userlist"}>
                 User List
               </Nav.Link>
 
-              <Nav.Link as={Link} to={"/validation-demo"}>
+              <Nav.Link as={Link} to={"/validationdemo"}>
                 ValidationDemo
               </Nav.Link>
               <Nav.Link onClick={logOutAction}>Log Out</Nav.Link>
