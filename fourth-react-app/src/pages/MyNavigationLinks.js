@@ -1,4 +1,4 @@
-import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function MyNavigationLinks() {
@@ -16,14 +16,14 @@ function MyNavigationLinks() {
               <Nav.Link as={Link} to={"/todo"}>
                 Todo
               </Nav.Link>
-              <Nav.Link as={Link} to={"/todo-list"}>
-                Todo List
+              <Nav.Link as={Link} to={"/todolist"}>
+                TodoList
               </Nav.Link>
               <Nav.Link as={Link} to={"/registration"}>
                 Registration
               </Nav.Link>
-              <Nav.Link as={Link} to={"/user-list"}>
-                User List
+              <Nav.Link as={Link} to={"/userlist"}>
+                UserList
               </Nav.Link>
               <Nav.Link as={Link} to={"/validation-demo"}>
                 ValidationDemo
