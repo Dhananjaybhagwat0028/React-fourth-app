@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function MyRegistration() {
+  let [sucessBox, setSuccessBox] = useState(false);
   let [user, setUser] = useState({
     username: "",
     password: "",
@@ -40,6 +41,13 @@ function MyRegistration() {
       mobile: "",
     };
     setUser(newuser);
+
+    // clear alert box
+     setSuccessBox(true);
+    setTimeout(() => {
+      setSuccessBox(false);
+    }, 2000);
+
   };
 
   return (
@@ -80,6 +88,9 @@ function MyRegistration() {
           onClick={registerAction}
         />
       </div>
+      {sucessBox && (
+        <div className="alert alert-success">Operation Success</div>
+      )}
     </>
   );
 }
