@@ -35,6 +35,9 @@ function MyTodo() {
     setTodo(newtodo);
 
     setSuccessBox(true);
+    setTimeout(() => {
+      setSuccessBox(false);
+    }, 2000);
   };
 
   return (
