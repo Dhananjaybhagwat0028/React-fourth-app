@@ -16,6 +16,9 @@ function MyNavigationLinksUsingButton() {
   let goToRegistrationAction = () => {
     navigate("/registration");
   };
+  let goToUserListAction = () => {
+    navigate("/userlst");
+  };
 
   return (
     <div>
@@ -23,6 +26,7 @@ function MyNavigationLinksUsingButton() {
       <input type="button" value="Todo" onClick={goToTodoAction} />
       <input type="button" value="TodoList" onClick={goToTodoListAction} />
       <input type="button" value="Registartion" onClick={goToRegistrationAction} />
+      <input type="button" value="UserList" onClick={goToUserListAction} />
     </div>
   );
 }
